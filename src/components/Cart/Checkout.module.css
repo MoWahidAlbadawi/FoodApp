@@ -1,0 +1,53 @@
+.form {
+    margin-top: -1rem;
+}
+.div {
+    margin: .5rem 1rem;
+}
+.label {
+    display: block;
+    color: black;
+    margin-bottom: .3rem;
+}
+.input {
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: .3rem 1rem;
+    font-size: .5rem;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+}
+.input:focus {
+    border-color: gray;
+}
+.controls {
+    text-align: right;
+    margin-top: -2rem;
+  }
+  
+.controls button {
+    font: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    background-color: #8a2b06;
+    border: 1px solid #8a2b06;
+    padding: 0.5rem 2rem;
+    color: white;
+    border-radius: 25px;
+    margin-left: 1rem;
+}
+.controls button:hover,
+.controls button:active {
+    background-color: #5a1a01;
+    color: white;
+  }
+.span {
+    color: red;
+    display: block;
+}
+@media (max-width:767px) {
+    .controls {
+        margin-top: 1rem;
+    }
+}   

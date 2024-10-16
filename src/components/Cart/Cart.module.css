@@ -1,0 +1,81 @@
+.items {
+  max-height: 260px;
+  overflow: scroll;
+}
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 20rem;
+  overflow: auto;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: black;
+  margin-top: -.4rem;
+}
+
+.actions {
+  text-align: right;
+}
+
+.actions button,
+.didSubmitting button {
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  background-color: #8a2b06;
+  color: white;
+  border: 1px solid #8a2b06;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+}
+
+.actions button:hover,
+.actions button:active,
+.didSubmitting button:hover {
+  background-color: #5a1a01;
+  color: white;
+}
+
+.actions .button--alt {
+  color: #8a2b06;
+}
+
+.actions .button,
+.done-ok  {
+  background-color: #8a2b06;
+  color: white;
+}
+@media (max-width:500px) {
+  .done {
+    width: 80%;
+    max-width: 85%;
+    font-size: 1.5rem;
+}
+}
+.didSubmitting {
+  padding: .2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.isSubmitting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .2rem 2rem;
+}
+.didSubmitting p,
+.isSubmitting p {
+  color: #8a2b06;
+  font-size: 1.2rem;
+}

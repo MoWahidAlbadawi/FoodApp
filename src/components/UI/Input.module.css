@@ -1,0 +1,15 @@
+.input {
+    margin: .5rem;
+    color: black;
+}
+.input label {
+    font-weight: bold;
+    margin-right: .7rem;
+}
+.input input {
+    background-color: transparent;
+    color: black;
+    width: 2rem;
+    height: 1.rem;
+    border: 1px solid rgb(178, 171, 171);
+}
