@@ -48,7 +48,7 @@ const MealsAvailable = () => {
     if(isLoading) 
         return <p className={classes.toAccess}>...Loading</p>
         if(error) 
-            return <p className={classes.toAccess}>{error}</p>
+            return <p className={classes.toAccess}>{error}! try again please</p>
     return (
         <section className={classes.meals}>
             <Card>
