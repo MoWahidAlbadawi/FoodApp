@@ -5,7 +5,7 @@ import MealItem from './MealItem/MealItem';
 //import UI Card for ul
 import Card from '../UI/Card';
 import { useEffect, useState } from 'react';
-
+import  databases  from '../../lib/appwrite'
 const MealsAvailable = () => {
     const [meals , setMeals]  = useState([]);
     const [isLoading , setIsLoading] = useState(false);
@@ -13,21 +13,11 @@ const MealsAvailable = () => {
     async function fetchingDataHandler () {
         setIsLoading(true);
         try {
-        const response = await fetch('https://foodapp-5ab37-default-rtdb.firebaseio.com/meals.json');
-        if(!response.ok) {
-            throw new Error('something went wrong , please try again');
-        }
-        const responseData = await response.json();
-        let loadMeals = [];
-        for (const key in responseData) {
-            loadMeals.push({
-                id : key,
-                name : responseData[key].name,
-                description : responseData[key].description,
-                price : responseData[key].price
-            });
-            }
-            setMeals(loadMeals);
+                const respponse =  await databases.listDocuments(
+                  "67345e81001536702983",
+                  "67345e9d00252a60586a",
+                );
+            setMeals(respponse.documents);
         }
     catch (error) {
         setError(error.message);
@@ -36,7 +26,7 @@ const MealsAvailable = () => {
 }
     useEffect(() => {
         fetchingDataHandler();  
-},[]);
+},[databases]);
     let MealsList = meals.map(meal => 
        <MealItem key={meal.id}
        id = {meal.id}

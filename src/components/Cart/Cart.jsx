@@ -8,6 +8,8 @@ import Modal from '../UI/Modal';
 import Checkout from './Checkout';
 import { cartActions } from '../../store';
 import { useSelector , useDispatch } from 'react-redux';
+import databases from '../../lib/appwrite';
+import { ID } from 'appwrite';
 const Cart = (props) => {
     const [isSubmitting , setIsSubmitting] = useState(false);
     const [didSubmitting , setDidSubmitting] = useState(false);
@@ -37,15 +39,32 @@ const Cart = (props) => {
         }
         async function sendDataFetching (infoOrder) {
             setIsSubmitting(true);
-             await fetch('https://foodapp-5ab37-default-rtdb.firebaseio.com/orders.json', {
-                method : 'POST',
-                body : JSON.stringify({
-                    customer : infoOrder ,
-                    items : myItems,
-                })
-            });
-            setIsSubmitting(false);
-            setDidSubmitting(true);
+            //  await fetch('https://foodapp-5ab37-default-rtdb.firebaseio.com/orders.json', {
+            //     method : 'POST',
+            //     body : JSON.stringify({
+            //         customer : infoOrder ,
+            //         items : myItems,
+            //     })
+            // });
+            try {
+            const response = await databases.createDocument(
+                '67345e81001536702983',
+                '67391c19003bcde38115',
+                ID.unique(),
+                {
+                    name : infoOrder.name,
+                    city : infoOrder.city,
+                    street : infoOrder.street, 
+                    postalCode : JSON.stringify(infoOrder.postalCode),
+
+                }
+            )
+        }
+        catch (error){
+            console.log(error.message);
+        }
+        setIsSubmitting(false);
+        setDidSubmitting(true);
             dispatch(cartActions.clearCart());
         }
         let content = (<Modal className={classes['cart-items']} onCloseCart={props.onCloseCart}>

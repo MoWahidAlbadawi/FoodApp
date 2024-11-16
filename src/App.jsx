@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 //import details cart ordered
 import Cart from './components/Cart/Cart'

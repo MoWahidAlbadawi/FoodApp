@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../../store';
 //import css file
 import classes from './MealItem.module.css'
@@ -6,6 +6,7 @@ import classes from './MealItem.module.css'
 import MealItemForm from './MealItemForm';
 const MealItem = (props) => {
     const dispatch = useDispatch();
+    
     function addItemToContext(amount){
         dispatch(cartActions.addItem({
             id : props.id,
