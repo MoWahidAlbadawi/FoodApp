@@ -37,15 +37,10 @@ const Cart = (props) => {
         function orderedHandler () {
             setIsOrder(true);
         }
+        //this for send itmes customer to appwrite database
+        const itemsToDataBase = myItems.map((item) => JSON.stringify(item));
         async function sendDataFetching (infoOrder) {
             setIsSubmitting(true);
-            //  await fetch('https://foodapp-5ab37-default-rtdb.firebaseio.com/orders.json', {
-            //     method : 'POST',
-            //     body : JSON.stringify({
-            //         customer : infoOrder ,
-            //         items : myItems,
-            //     })
-            // });
             try {
             const response = await databases.createDocument(
                 '67345e81001536702983',
@@ -56,8 +51,8 @@ const Cart = (props) => {
                     city : infoOrder.city,
                     street : infoOrder.street, 
                     postalCode : JSON.stringify(infoOrder.postalCode),
-
-                }
+                    items : itemsToDataBase,
+                    }
             )
         }
         catch (error){

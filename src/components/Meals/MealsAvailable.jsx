@@ -25,7 +25,7 @@ const MealsAvailable = () => {
     setIsLoading(false);
 }
     useEffect(() => {
-        fetchingDataHandler();  
+        fetchingDataHandler();
 },[databases]);
     let MealsList = meals.map(meal => 
        <MealItem key={meal.id}
