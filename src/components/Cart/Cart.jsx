@@ -10,6 +10,7 @@ import { cartActions } from '../../store';
 import { useSelector , useDispatch } from 'react-redux';
 import databases from '../../lib/appwrite';
 import { ID } from 'appwrite';
+import { KEYS } from '../../../MyKeys';
 const Cart = (props) => {
     const [isSubmitting , setIsSubmitting] = useState(false);
     const [didSubmitting , setDidSubmitting] = useState(false);
@@ -43,8 +44,8 @@ const Cart = (props) => {
             setIsSubmitting(true);
             try {
             const response = await databases.createDocument(
-                '67345e81001536702983',
-                '67391c19003bcde38115',
+                KEYS.DATABASE_ID,
+                KEYS.COLLECTION_CUSTOMER_ID,
                 ID.unique(),
                 {
                     name : infoOrder.name,

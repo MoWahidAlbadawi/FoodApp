@@ -1,7 +1,8 @@
 import { Client , Databases } from 'appwrite';
+import { KEYS } from '../../MyKeys';
 
 const client = new Client();
-client.setEndpoint("https://cloud.appwrite.io/v1").setProject('67345d3e002ce67179fa');
+client.setEndpoint("https://cloud.appwrite.io/v1").setProject(KEYS.PROJECT_ID);
 
 const databases = new Databases(client);
 
