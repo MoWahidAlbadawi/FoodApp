@@ -44,7 +44,7 @@ const Cart = (props) => {
             setIsSubmitting(true);
             try {
             const response = await databases.createDocument(
-                KEYS.DATABASE_ID,
+                KEYS.DATABASE_FOODY_ID,
                 KEYS.COLLECTION_CUSTOMER_ID,
                 ID.unique(),
                 {
