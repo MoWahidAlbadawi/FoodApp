@@ -16,7 +16,7 @@ const MealsAvailable = () => {
         setIsLoading(true);
         try {
                 const respponse =  await databases.listDocuments(
-                  KEYS.DATABASE_ID,
+                  '67345e81001536702983',
                   KEYS.COLLECTION_MEALS_ID,
                 );
             setMeals(respponse.documents);
