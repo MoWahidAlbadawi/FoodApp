@@ -7,7 +7,6 @@ import Card from '../UI/Card';
 import { useEffect, useState } from 'react';
 import  databases  from '../../lib/appwrite'
 //MY DATABASE ID 
-import { KEYS } from '../../../MyKeys';
 const MealsAvailable = () => {
     const [meals , setMeals]  = useState([]);
     const [isLoading , setIsLoading] = useState(false);
@@ -17,7 +16,7 @@ const MealsAvailable = () => {
         try {
                 const respponse =  await databases.listDocuments(
                   '67345e81001536702983',
-                  KEYS.COLLECTION_MEALS_ID,
+                  '67345e9d00252a60586a',
                 );
             setMeals(respponse.documents);
         }

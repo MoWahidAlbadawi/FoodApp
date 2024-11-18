@@ -10,7 +10,6 @@ import { cartActions } from '../../store';
 import { useSelector , useDispatch } from 'react-redux';
 import databases from '../../lib/appwrite';
 import { ID } from 'appwrite';
-import { KEYS } from '../../../MyKeys';
 const Cart = (props) => {
     const [isSubmitting , setIsSubmitting] = useState(false);
     const [didSubmitting , setDidSubmitting] = useState(false);
@@ -42,10 +41,11 @@ const Cart = (props) => {
         const itemsToDataBase = myItems.map((item) => JSON.stringify(item));
         async function sendDataFetching (infoOrder) {
             setIsSubmitting(true);
+
             try {
             const response = await databases.createDocument(
                 '67345e81001536702983',
-                KEYS.COLLECTION_CUSTOMER_ID,
+                '67391c19003bcde38115',
                 ID.unique(),
                 {
                     name : infoOrder.name,
